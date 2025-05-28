@@ -14,6 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: List all files (debug)
+        run: |
+          echo "Daftar file di repo setelah checkout:"
+          ls -lahR
+
       - name: Deploy to Netlify
         uses: netlify/actions/cli@master
         env:
