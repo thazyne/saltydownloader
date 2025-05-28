@@ -1,0 +1,22 @@
+{
+  "name": "salty-downloader",
+  "version": "1.0.0",
+  "description": "Platform download video dan audio untuk YouTube dan TikTok",
+  "main": "index.html",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html styles.css script.js dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "youtube",
+    "tiktok",
+    "downloader",
+    "video",
+    "audio"
+  ],
+  "author": "Salty",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.0.0"
+  }
+} 

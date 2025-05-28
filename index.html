@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ts pmo platform downloader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">Salty Downloader</div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="section">
+                <div class="section-header">
+                    <h1 class="section-title">Download Video & Audio</h1>
+                    <p class="section-subtitle">Download video dan audio dari YouTube dan TikTok dengan mudah</p>
+                </div>
+
+                <div class="content-wrapper">
+                    <div class="tabs">
+                        <div class="tab active" data-tab="youtube">
+                            <i class="fab fa-youtube"></i> YouTube
+                        </div>
+                        <div class="tab" data-tab="tiktok">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </div>
+                    </div>
+
+                    <div id="youtube-content">
+                        <div class="form-group">
+                            <label class="form-label" for="youtube-url">Tempel link YouTube disini:</label>
+                            <input type="text" id="youtube-url" class="form-input" placeholder="https://youtube.com/watch?v=...">
+                        </div>
+
+                        <div class="format-grid">
+                            <button class="format-option selected" data-format="mp4">
+                                <i class="fas fa-film"></i>
+                                <span>Video (MP4)</span>
+                            </button>
+                            <button class="format-option" data-format="mp3">
+                                <i class="fas fa-music"></i>
+                                <span>Audio (MP3)</span>
+                            </button>
+                        </div>
+
+                        <div id="quality-options">
+                            <select class="quality-select" id="video-quality">
+                                <option value="480">480p (Standar)</option>
+                                <option value="720">720p (HD)</option>
+                                <option value="1080">1080p (Full HD)</option>
+                            </select>
+                            <select class="quality-select hidden" id="audio-quality">
+                                <option value="128">128 kbps (Biasa)</option>
+                                <option value="192">192 kbps (Lumayan)</option>
+                                <option value="320">320 kbps (High Quality)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="tiktok-content" class="hidden">
+                        <div class="form-group">
+                            <label class="form-label" for="tiktok-url">Tempel link TikTok disini:</label>
+                            <input type="text" id="tiktok-url" class="form-input" placeholder="https://tiktok.com/@user/video/123...">
+                        </div>
+
+                        <div class="format-grid">
+                            <button class="format-option selected" data-format="mp4">
+                                <i class="fas fa-video"></i>
+                                <span>Video (MP4)</span>
+                            </button>
+                            <button class="format-option" data-format="mp3">
+                                <i class="fas fa-headphones"></i>
+                                <span>Audio (MP3)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="download-btn" class="btn">
+                        <i class="fas fa-download"></i> DOWNLOAD SEKARANG
+                    </button>
+
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p>Sedang proses, sabar ya...</p>
+                    </div>
+
+                    <div class="result" id="result"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Salty Downloader</h3>
+                <p style="color: var(--gray); font-size: 0.9375rem; line-height: 1.5;">
+                    Platform download video dan audio terbaik untuk YouTube dan TikTok. Download dengan mudah dan cepat.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/saaalty7?igsh=MXd4ajJ2cGkwbTBpcQ==" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/thazyne" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Fitur</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-video"></i>
+                        Download Video YouTube
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-music"></i>
+                        Download Audio MP3
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="fab fa-tiktok"></i>
+                        Download Video TikTok
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="fas fa-bolt"></i>
+                        Download Cepat
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Salty Downloader. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Popup -->
+    <div id="popup">
+        <div id="popup-content">
+            <div class="popup-header">
+                <span>Selamat Datang di Salty Downloader</span>
+                <button class="close-btn" onclick="closePopup()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="popup-body">
+                <div class="popup-emoji">👋</div>
+                <div class="popup-text">
+                    <p>Selamat datang di website <strong>Salty Downloader</strong>!</p>
+                    <p>Platform download video dan audio terbaik untuk YouTube dan TikTok.</p>
+                </div>
+                <div class="popup-gif-container">
+                    <div class="tenor-gif-embed" data-postid="6415788372471391141" data-share-method="host" data-aspect-ratio="0.801205" data-width="100%">
+                        <a href="https://tenor.com/view/druski-druski-dance-kai-cenat-gif-6415788372471391141">Druski Druski Dance GIF</a> from 
+                        <a href="https://tenor.com/search/druski-gifs">Druski GIFs</a>
+                    </div>
+                    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                </div>
+                <button class="confirm-btn" onclick="closePopup()">
+                    <i class="fas fa-rocket"></i>
+                    Mulai Download Sekarang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
