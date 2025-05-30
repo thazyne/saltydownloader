@@ -31,6 +31,9 @@
                         <div class="tab" data-tab="tiktok">
                             <i class="fab fa-tiktok"></i> TikTok
                         </div>
+                        <div class="tab" data-tab="facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </div>
                     </div>
 
                     <div id="youtube-content">
@@ -79,6 +82,20 @@
                                 <i class="fas fa-headphones"></i>
                                 <span>Audio (MP3)</span>
                             </button>
+                        </div>
+                    </div>
+
+                    <div id="facebook-content" class="hidden">
+                        <div class="form-group">
+                            <label class="form-label" for="facebook-url">Tempel link Facebook disini:</label>
+                            <input type="text" id="facebook-url" class="form-input" placeholder="https://facebook.com/...">
+                        </div>
+                         <div class="format-grid">
+                            <button class="format-option selected" data-format="mp4">
+                                <i class="fas fa-video"></i>
+                                <span>Video (MP4)</span>
+                            </button>
+                            <!-- Facebook API currently only supports video download, so only include MP4 option -->
                         </div>
                     </div>
 
